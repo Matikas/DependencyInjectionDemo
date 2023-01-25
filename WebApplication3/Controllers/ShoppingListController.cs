@@ -16,15 +16,27 @@ namespace WebApplication3.Controllers
         }
 
         [HttpGet]
-        public List<string> GetAllItems()
+        public List<ShoppingItem> GetAllItems()
         {
             return _shoppingList.GetItems();
         }
 
         [HttpPost]
-        public void PostItem(string itemToAdd)
+        public void PostItem(ShoppingItemDto itemToAdd)
         {
-            _shoppingList.AddItemToList(itemToAdd);
+            _shoppingList.AddItemToList(itemToAdd.Name);
+        }
+
+        [HttpPut]
+        public void UpdateItem([FromQuery] int id, [FromBody] ShoppingItemDto item)
+        {
+            _shoppingList.UpdateItem(id, item.Name);
+        }
+
+        [HttpDelete]
+        public void DeleteItem(int id)
+        {
+            _shoppingList.DeleteItem(id);
         }
     }
 }

@@ -3,6 +3,8 @@
     public interface IShoppingList
     {
         void AddItemToList(string item);
-        List<string> GetItems();
+        List<ShoppingItem> GetItems();
+        void UpdateItem(int id, string name);
+        void DeleteItem(int id);
     }
 }
