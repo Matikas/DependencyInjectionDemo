@@ -1,6 +1,6 @@
 ﻿namespace WebApplication3.ShoppingListDataAccess
 {
-    public class ShoppingList : IShoppingList
+    public class ShoppingListRepository : IShoppingListRepository
     {
         private int _lastId;
         private List<ShoppingItem> _items = new List<ShoppingItem>();

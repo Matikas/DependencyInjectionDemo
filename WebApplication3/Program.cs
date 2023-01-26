@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WebApplication3.DataAccess;
 using WebApplication3.ShoppingListDataAccess;
 using WebApplication3.TimeService;
@@ -11,9 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<ShoppingListDbContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddScoped<IWeatherRepository, WeatherRepository>();
 builder.Services.AddTransient<IDateTimeService, DateTimeService>();
-builder.Services.AddSingleton<IShoppingList, ShoppingList>();
+builder.Services.AddScoped<IShoppingListRepository, ShoppingListDbRepository>();
 
 var app = builder.Build();
 

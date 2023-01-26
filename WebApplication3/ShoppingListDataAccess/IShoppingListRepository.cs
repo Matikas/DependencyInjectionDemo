@@ -1,6 +1,6 @@
 ﻿namespace WebApplication3.ShoppingListDataAccess
 {
-    public interface IShoppingList
+    public interface IShoppingListRepository
     {
         void AddItemToList(string item);
         List<ShoppingItem> GetItems();

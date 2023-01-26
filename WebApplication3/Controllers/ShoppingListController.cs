@@ -8,9 +8,9 @@ namespace WebApplication3.Controllers
     [ApiController]
     public class ShoppingListController : ControllerBase
     {
-        private readonly IShoppingList _shoppingList;
+        private readonly IShoppingListRepository _shoppingList;
 
-        public ShoppingListController(IShoppingList shoppingList)
+        public ShoppingListController(IShoppingListRepository shoppingList)
         {
             _shoppingList = shoppingList;
         }
